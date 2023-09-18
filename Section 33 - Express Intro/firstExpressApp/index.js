@@ -19,6 +19,18 @@ app.get("/", (request, response) => {
     response.send("<h1>Welcome to homepage</h1>");
 });
 
+// 위 함수의 동작 원리 : 콜백함수
+function introduce (lastName, firstName, callback) {
+    var fullName = lastName + firstName;
+    callback(fullName);
+}
+
+introduce("홍", "길동", function(name) {
+    console.log(name);
+});
+// 결과 -> 홍길동
+
+
 //pattern defining links (subreddits)
 app.get("/r/:subreddit", (request, response) => {
     //access the variable subreddit
